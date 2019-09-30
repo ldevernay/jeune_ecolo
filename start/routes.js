@@ -18,11 +18,20 @@ const Route = use('Route')
 
 const Database = use('Database');
 const User = use('App/Models/User');
+const Defi = use('App/Models/Defi');
 
 Route.get('/', async () => {
     return await Database.table('users').select('*'); 
 });
 
+Route.get('/defi', async () => {
+    const defi = new Defi();
+    defi.title = "Arrêter la viande";
+    defi.summary = "Je deviens végétarien";
+    defi.details = "Blabla";
+    return await defi.save();
+    
+})
 Route.get('/test', async () => {
     const user = new User();
 
