@@ -17,9 +17,20 @@
 const Route = use('Route')
 
 const Database = use('Database');
+const User = use('App/Models/User');
+
 Route.get('/', async () => {
     return await Database.table('users').select('*'); 
 });
+
+Route.get('/test', async () => {
+    const user = new User();
+
+    user.username='toto';
+    user.password='le-mdp-de-toto';
+    user.email='toto@toto.com';
+    return await user.save();
+})
 
 Route.post('login', 'UserController.login').middleware('guest');
 
