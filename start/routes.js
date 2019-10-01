@@ -21,7 +21,7 @@ const User = use('App/Models/User');
 const Defi = use('App/Models/Defi');
 
 Route.get('/', async () => {
-    return await Database.table('users').select('*'); 
+    return await Database.table('defis').select('*'); 
 });
 
 Route.get('/defi', async () => {

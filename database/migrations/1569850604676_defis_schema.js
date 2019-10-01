@@ -8,8 +8,8 @@ class DefisSchema extends Schema {
     this.create('defis', (table) => {
       table.increments()
       table.string('title', 80).notNullable().unique()
-      table.string('summary', 100).notNullable()
-      table.string('details', 250).notNullable()
+      table.string('summary', 250).notNullable()
+      table.string('details', 500).notNullable()
       table.timestamps()
     })
   }
