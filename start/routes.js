@@ -18,30 +18,4 @@ const Route = use('Route')
 
 
 Route.get('/', 'DefiController.list');
-
-// Route.get('/defi', async () => {
-//     const defi = new Defi();
-//     defi.title = "Zéro déchet";
-//     defi.summary = "Je deviens végétarien";
-//     defi.details = "Blabla";
-//     return await defi.save();
-
-// });
-
-// Route.get('/defi_user', async () => {
-//     const defi = await Defi.find(3);
-//     const user = await User.find(1);
-//     return await user.defis().save(defi);
-// })
-// Route.get('/test', async () => {
-//     const user = new User();
-
-//     user.username = 'toto';
-//     user.password = 'le-mdp-de-toto';
-//     user.email = 'toto@toto.com';
-//     return await user.save();
-// })
-
-// Route.post('login', 'UserController.login').middleware('guest');
-
-// Route.get('users/:id', 'UserController.show').middleware('auth');
+Route.get('/defi/show/:id', 'DefiController.show');

@@ -7,7 +7,7 @@
     <div class="card">
             <header class="card-header">
               <p class="card-header-title">
-                {{defi.title}}
+              <a href="{{route('DefiController.show', {id: defi.id})}}">{{defi.title}}</a>
               </p>
             </header>
             <div class="card-content">
