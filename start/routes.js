@@ -16,37 +16,32 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-const Database = use('Database');
-const User = use('App/Models/User');
-const Defi = use('App/Models/Defi');
 
-Route.get('/', async () => {
-    return await Defi.query().withCount('users').fetch();
-});
+Route.get('/', 'DefiController.list');
 
-Route.get('/defi', async () => {
-    const defi = new Defi();
-    defi.title = "Zéro déchet";
-    defi.summary = "Je deviens végétarien";
-    defi.details = "Blabla";
-    return await defi.save();
-    
-});
+// Route.get('/defi', async () => {
+//     const defi = new Defi();
+//     defi.title = "Zéro déchet";
+//     defi.summary = "Je deviens végétarien";
+//     defi.details = "Blabla";
+//     return await defi.save();
 
-Route.get('/defi_user', async () => {
-    const defi = await Defi.find(3);
-    const user = await User.find(1);
-    return await user.defis().save(defi);
-})
-Route.get('/test', async () => {
-    const user = new User();
+// });
 
-    user.username='toto';
-    user.password='le-mdp-de-toto';
-    user.email='toto@toto.com';
-    return await user.save();
-})
+// Route.get('/defi_user', async () => {
+//     const defi = await Defi.find(3);
+//     const user = await User.find(1);
+//     return await user.defis().save(defi);
+// })
+// Route.get('/test', async () => {
+//     const user = new User();
 
-Route.post('login', 'UserController.login').middleware('guest');
+//     user.username = 'toto';
+//     user.password = 'le-mdp-de-toto';
+//     user.email = 'toto@toto.com';
+//     return await user.save();
+// })
 
-Route.get('users/:id', 'UserController.show').middleware('auth');
+// Route.post('login', 'UserController.login').middleware('guest');
+
+// Route.get('users/:id', 'UserController.show').middleware('auth');

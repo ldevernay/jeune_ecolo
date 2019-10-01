@@ -1,0 +1,30 @@
+@layout('layouts.main')
+
+@section('content')
+<h2>Nous proposons aujourd'hui {{defis.length}} défis</h2>
+<ul>
+    @each(defi in defis)
+    <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                {{defi.title}}
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                {{defi.summary}}
+              </div>
+            </div>
+            <footer class="card-footer">
+            @if(defi.__meta__.users_count > 1)
+                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeunes se sont déjà lancés!</a>
+            @elseif(defi.__meta__.users_count == 1)
+                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeune s'est déjà lancé!</a>
+            @else
+                <a href="#" class="card-footer-item">Sois le premier à te lancer!</a>
+            @endif
+            </footer>
+          </div>
+    @endeach
+</ul>
+@endsection
