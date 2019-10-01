@@ -4,6 +4,10 @@
 const Model = use('Model')
 
 class Defi extends Model {
+    users(){
+        return this.belongsToMany('App/Models/User')
+        .withTimestamps();
+    }
 }
 
 module.exports = Defi

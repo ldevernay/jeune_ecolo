@@ -26,11 +26,17 @@ Route.get('/', async () => {
 
 Route.get('/defi', async () => {
     const defi = new Defi();
-    defi.title = "Arrêter la viande";
+    defi.title = "Zéro déchet";
     defi.summary = "Je deviens végétarien";
     defi.details = "Blabla";
     return await defi.save();
     
+});
+
+Route.get('/defi_user', async () => {
+    const defi = await Defi.find(3);
+    const user = await User.find(1);
+    return await user.defis().save(defi);
 })
 Route.get('/test', async () => {
     const user = new User();

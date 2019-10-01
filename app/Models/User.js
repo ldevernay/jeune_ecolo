@@ -7,6 +7,11 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 class User extends Model {
+  defis(){
+    return this.belongsToMany('App/Models/Defi')
+    .pivotTable('user_defis')
+    .withTimestamps();
+}
   static boot () {
     super.boot()
 
