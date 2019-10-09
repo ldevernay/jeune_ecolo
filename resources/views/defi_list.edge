@@ -17,11 +17,11 @@
             </div>
             <footer class="card-footer">
             @if(defi.__meta__.users_count > 1)
-                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeunes se sont déjà lancés!</a>
+                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeunes ont déjà relevé le défi!</a>
             @elseif(defi.__meta__.users_count == 1)
-                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeune s'est déjà lancé!</a>
+                <a href="#" class="card-footer-item">{{defi.__meta__.users_count}} jeune a déjà relevé le défi!</a>
             @else
-                <a href="#" class="card-footer-item">Sois le premier à te lancer!</a>
+                <a href="#" class="card-footer-item">Sois le premier à relever le défi!</a>
             @endif
             </footer>
           </div>
