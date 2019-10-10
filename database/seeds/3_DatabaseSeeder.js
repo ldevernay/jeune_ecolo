@@ -52,6 +52,9 @@ class DatabaseSeeder {
     user1.defis().attach([defi1.id, defi2.id, defi3.id, defi4.id, defi5.id]);
 
     user2.defis().attach([defi1.id, defi3.id, defi5.id]);
+
+    const post1 = await Factory.model('App/Models/Post').create();
+    post1.user().associate(user1);
   }
 }
 

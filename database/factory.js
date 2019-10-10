@@ -38,14 +38,21 @@ Factory.blueprint('App/Models/User', async (faker) => {
 Factory.blueprint('App/Models/Defi', async (faker) => {
     return {
         title: faker.sentence({ words: 3 }),
-        summary: faker.paragraph({ sentences: 1 }),
+        why: faker.paragraph({ sentences: 1 }),
         details: faker.paragraph({ sentences: 1 })
     }
 })
 
-
 Factory.blueprint('App/Models/Theme', async (faker) => {
     return {
         title: faker.word({ length: 5 })
+    }
+})
+
+
+Factory.blueprint('App/Models/Post', async (faker) => {
+    return {
+        title: faker.sentence({ words: 3 }),
+        content: faker.paragraph({ sentences: 1 })
     }
 })

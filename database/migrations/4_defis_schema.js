@@ -8,7 +8,7 @@ class DefisSchema extends Schema {
     this.create('defis', (table) => {
       table.increments()
       table.string('title', 80).notNullable()
-      table.string('summary', 250).notNullable()
+      table.string('why', 250).notNullable()
       table.string('details', 500).notNullable()
       table.integer('theme_id', 11).unsigned().references('id').inTable('themes')
       table.timestamps()
