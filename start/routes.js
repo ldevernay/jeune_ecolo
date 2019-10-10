@@ -18,7 +18,22 @@ const Route = use('Route')
 const Theme = use('App/Models/Theme')
 
 
-Route.get('/', 'ThemeController.list');
-Route.get('/theme/show/:id', 'DefiController.listTheme');
-Route.get('/defi/show/:id', 'DefiController.show');
-// Route.get('/test', async ()=>{console.log(await Theme.find(1))})
+Route
+    .get('/', 'ThemeController.list');
+Route
+    .get('/theme/show/:id', 'DefiController.listTheme');
+Route
+    .get('/defi/show/:id', 'DefiController.show');
+
+Route
+    .get('/login', 'UserController.connexion');
+Route
+    .post('/login', 'UserController.login')
+    .middleware('guest');
+Route
+    .get('/users/:id', 'UserController.show')
+    .middleware('auth');
+Route
+    .get('/signup', 'UserController.signup');
+Route
+    .post('/signup', 'UserController.create');

@@ -1,0 +1,28 @@
+@layout('layouts.main')
+
+@section('content')
+<form action="/login" method="post">
+  {{ csrfField() }}
+  <div class="field">
+    <label class="label">Courriel</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="michel@comminges.fr" name="email" id="email">
+    </div>
+    <p class="help">Le courriel que vous avez utilisé pour créer un compte</p>
+  </div>
+  <div class="field">
+    <label class="label">Mot de passe</label>
+    <div class="control">
+     <input type="password" class="input" name="password" id="password">
+    </div>
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">Se connecter</button>
+    </div>
+    <div class="control">
+      <button class="button is-text">Annuler</button>
+    </div>
+  </div>
+</form>
+@endsection
