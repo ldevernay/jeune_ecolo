@@ -7,12 +7,18 @@ const Hash = use('Hash')
 const Model = use('Model')
 
 class User extends Model {
-  defis(){
+  defis() {
     return this.belongsToMany('App/Models/Defi')
-    .pivotTable('user_defis')
-    .withTimestamps();
-}
-  static boot () {
+      .pivotTable('user_defis')
+      .withTimestamps();
+  }
+  role() {
+    return this.belongsTo('App/Models/Role');
+  }
+  structure() {
+    return this.belongsTo('App/Models/Structure');
+  }
+  static boot() {
     super.boot()
 
     /**
@@ -36,7 +42,7 @@ class User extends Model {
    *
    * @return {Object}
    */
-  tokens () {
+  tokens() {
     return this.hasMany('App/Models/Token')
   }
 }

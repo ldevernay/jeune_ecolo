@@ -15,6 +15,18 @@
 const Factory = use('Factory')
 const Hash = use('Hash')
 
+Factory.blueprint('App/Models/Structure', async (faker) => {
+    return {
+        name: faker.word({ length: 5 })
+    }
+})
+
+Factory.blueprint('App/Models/Role', async (faker) => {
+    return {
+        name: faker.word({ length: 5 })
+    }
+})
+
 Factory.blueprint('App/Models/User', async (faker) => {
     return {
         username: faker.username(),
