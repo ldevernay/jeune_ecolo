@@ -18,6 +18,7 @@ const Route = use('Route')
 const Theme = use('App/Models/Theme')
 
 
-Route.get('/', 'DefiController.list');
+Route.get('/', 'ThemeController.list');
+Route.get('/theme/show/:id', 'DefiController.listTheme');
 Route.get('/defi/show/:id', 'DefiController.show');
 // Route.get('/test', async ()=>{console.log(await Theme.find(1))})

@@ -1,0 +1,15 @@
+@layout('layouts.main')
+
+@section('content')
+<ul>
+    @each(theme in themes)
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          <a href="{{route('DefiController.listTheme', {id:theme.id})}}">{{theme.title}}</a>
+        </p>
+      </header>
+    </div>
+    @endeach
+</ul>
+@endsection
