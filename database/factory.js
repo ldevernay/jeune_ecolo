@@ -30,3 +30,10 @@ Factory.blueprint('App/Models/Defi', async (faker) => {
         details: faker.paragraph({ sentences: 1 })
     }
 })
+
+
+Factory.blueprint('App/Models/Theme', async (faker) => {
+    return {
+        title: faker.word({ length: 5 })
+    }
+})

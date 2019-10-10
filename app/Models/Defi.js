@@ -9,6 +9,9 @@ class Defi extends Model {
         .pivotTable('user_defis')
         .withTimestamps();
     }
+    theme(){
+        return this.belongsTo('App/Models/Theme');
+    }
 }
 
 module.exports = Defi
