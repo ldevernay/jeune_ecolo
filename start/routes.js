@@ -15,7 +15,9 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
+const Theme = use('App/Models/Theme')
 
 
 Route.get('/', 'DefiController.list');
 Route.get('/defi/show/:id', 'DefiController.show');
+Route.get('/test', async ()=>{console.log(await Theme.find(1))})

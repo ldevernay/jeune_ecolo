@@ -15,7 +15,7 @@ const Factory = use('Factory')
 
 class DefiSeeder {
   async run () {
-    await Factory.model('App/Models/Defi').createMany(10);
+    // await Factory.model('App/Models/Defi').createMany(10);
   }
 }
 
