@@ -20,10 +20,13 @@ const Theme = use('App/Models/Theme')
 
 Route
     .get('/', 'ThemeController.list');
+
 Route
     .get('/theme/show/:id', 'DefiController.listTheme');
 Route
     .get('/defi/show/:id', 'DefiController.show');
+Route
+    .get('/stopDefi/:id', 'UserController.stopDefi');
 
 Route
     .get('/login', 'UserController.connexion');

@@ -1,0 +1,26 @@
+@layout('layouts.main')
+
+@section('content')
+<h2>Profil de {{user.username}}</h2>
+<h3>Structure : {{structure.name}}</h3>
+<ul>
+    @each(defi in defis)
+    <div class="card">
+            <header class="card-header">
+              <p class="card-header-title">
+                <a href="{{route('DefiController.show', {id: defi.id})}}">{{defi.title}}</a>
+                <a href="{{route('UserController.stopDefi', {id: defi.id})}}" class="button is-danger">Stop</a>
+              </p>
+            </header>
+            <div class="card-content">
+              <div class="content">
+                {{defi.why}}
+              </div>
+            </div>
+            <footer class="card-footer">
+              {{defi.from}}
+            </footer>
+          </div>
+    @endeach
+</ul>
+@endsection

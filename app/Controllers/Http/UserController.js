@@ -2,6 +2,8 @@
 
 const { validateAll } = use('Validator');
 const User = use('App/Models/User');
+const moment = require('moment');
+moment.locale('fr');
 
 class UserController {
     signup({ view }) {
@@ -43,16 +45,34 @@ class UserController {
         response.redirect('/');
     }
 
-    async logout({auth, response}){
+    async logout({ auth, response }) {
         await auth.logout();
         response.redirect('/login');
     }
 
-    show({ auth, params }) {
-        if (auth.user.id !== Number(params.id)) {
-            return "You cannot see someone else's profile"
-        }
-        return auth.user;
+    async stopDefi({ auth, response, params }) {
+        let user = await auth.user;
+        await user
+            .defis()
+            .pivotQuery()
+            .where({ 'defi_id': params.id, 'user_id': user.id })
+            .update({ end_date: moment().format("YYYY-MM-DD HH:mm:ss") })
+        response.redirect('back');
+    }
+
+    async show({ view, auth, params }) {
+        let user = await User.find(params.id);
+        let structure = await user.structure().fetch();
+        let defis = await user.defis().fetch();
+        defis = defis.toJSON().map(defi => {
+            if (!defi.pivot.end_date) {
+                defi.from = "Commencé " + moment(defi.created_at).fromNow();
+            } else {
+                defi.from = "Défi terminé";
+            }
+            return defi;
+        })
+        return view.render('user.profile', { user, structure, defis });
     }
 }
 

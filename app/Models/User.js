@@ -10,7 +10,8 @@ class User extends Model {
   defis() {
     return this.belongsToMany('App/Models/Defi')
       .pivotTable('user_defis')
-      .withTimestamps();
+      .pivotModel('App/Models/UserDefi')
+      .withPivot(['end_date']);
   }
   role() {
     return this.belongsTo('App/Models/Role');
