@@ -28,6 +28,8 @@ Route
 Route
     .get('/login', 'UserController.connexion');
 Route
+    .get('/logout', 'UserController.logout');
+Route
     .post('/login', 'UserController.login')
     .middleware('guest');
 Route

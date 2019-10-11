@@ -28,6 +28,16 @@
                 <div id="navbarBasicExample" class="navbar-menu">
                   <div class="navbar-end">
                     <div class="navbar-item">
+                      @if(auth.user)
+                      <div class="buttons">
+                          <a class="button is-primary" href="/logout">
+                            <strong>Se déconnecter</strong>
+                          </a>
+                          <a class="button is-light" href="/profile">
+                              Profil
+                          </a>
+                        </div>
+                      @else 
                       <div class="buttons">
                         <a class="button is-primary" href="/login">
                           <strong>Se connecter</strong>
@@ -36,6 +46,7 @@
                             Créer un compte
                         </a>
                       </div>
+                      @endif
                     </div>
                   </div>
                 </div>

@@ -7,6 +7,7 @@ class UserController {
     signup({ view }) {
         return view.render('user.signup');
     }
+
     async create({ request, session, response }) {
         const userInfo = request.only(['username', 'email', 'password', 'password_confirmation'])
         const rules = {
@@ -31,14 +32,20 @@ class UserController {
 
         response.redirect('/login')
     }
+
     connexion({ view }) {
         return view.render('user.connexion');
     }
-    async login({ auth, request }) {
+
+    async login({ auth, request, response }) {
         const { email, password } = request.all();
         await auth.attempt(email, password);
+        response.redirect('/');
+    }
 
-        return 'Logged in successfully';
+    async logout({auth, response}){
+        await auth.logout();
+        response.redirect('/login');
     }
 
     show({ auth, params }) {
