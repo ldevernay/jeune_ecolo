@@ -1,7 +1,7 @@
 @layout('layouts.main')
 
 @section('content')
-<h2>Profil de {{user.username}}</h2>
+<h2 class="title">Profil de {{user.username}}</h2>
 <h3>Structure : {{structure.name}}</h3>
 <ul>
     @each(defi in defis)

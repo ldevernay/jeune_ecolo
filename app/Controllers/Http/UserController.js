@@ -2,6 +2,7 @@
 
 const { validateAll } = use('Validator');
 const User = use('App/Models/User');
+const Defi = use('App/Models/Defi');
 const moment = require('moment');
 moment.locale('fr');
 
@@ -57,6 +58,13 @@ class UserController {
             .pivotQuery()
             .where({ 'defi_id': params.id, 'user_id': user.id })
             .update({ end_date: moment().format("YYYY-MM-DD HH:mm:ss") })
+        response.redirect('back');
+    }
+
+    async startDefi({ auth, response, params }) {
+        let user = await auth.user;
+        let defi = await Defi.find(params.id);
+        user.defis().attach([defi.id]);
         response.redirect('back');
     }
 

@@ -27,6 +27,8 @@ Route
     .get('/defi/show/:id', 'DefiController.show');
 Route
     .get('/stopDefi/:id', 'UserController.stopDefi');
+Route
+    .get('/startDefi/:id', 'UserController.startDefi');
 
 Route
     .get('/login', 'UserController.connexion');
