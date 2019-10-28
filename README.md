@@ -13,13 +13,7 @@ This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
 ## Setup
 
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick
-```
-
-or manually clone the repo and then run `npm install`.
+Manually clone the repo and then run `npm install`.
 
 
 ### Migrations
@@ -27,5 +21,13 @@ or manually clone the repo and then run `npm install`.
 Run the following command to run startup migrations.
 
 ```js
-adonis migration:run
+adonis migration:run    
+adonis seed
+```
+
+You can see the data model [here](https://dbdiagram.io/d/5db6ff16fa792a62f50d94f7).
+
+## Run server
+```
+adonis serve --dev
 ```
